@@ -25,7 +25,7 @@ namespace FeedTheCrowd.Controllers
             _userService = userService;
         }
 
-        [Authorize]
+        [Authorize(Roles ="Admin")]
         [HttpGet]
         public async Task<IActionResult> Get()
         {
@@ -44,7 +44,7 @@ namespace FeedTheCrowd.Controllers
 
             return Ok(user);
         }
-        [Authorize]
+        [Authorize(Roles ="Admin")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<User>> Delete(int id)
         {

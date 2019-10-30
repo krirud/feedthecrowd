@@ -99,10 +99,12 @@ namespace FeedTheCrowd.Data.Repositories
             //};
             //var token = tokenHandler.CreateToken(tokenDescriptor);
             //return tokenHandler.WriteToken(token);
+            var role = user.IsAdmin ? "Admin" : "User";
             var claims = new[]
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.Username)
+                new Claim(ClaimTypes.Name, user.Username),
+                new Claim(ClaimTypes.Role, role)
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8

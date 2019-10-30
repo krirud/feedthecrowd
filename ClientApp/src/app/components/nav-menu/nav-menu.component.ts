@@ -19,10 +19,16 @@ export class NavMenuComponent {
   user: User;
   localUser: any;
   id: any;
+  
+  navbarOpen = false;
 
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router) {}
+
+    toggleNavbar() {
+      this.navbarOpen = !this.navbarOpen;
+    }
   collapse() {
     this.isExpanded = false;
   }
